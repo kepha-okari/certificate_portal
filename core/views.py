@@ -36,20 +36,15 @@ def new_application(request):
 
 
 def reports(request):
-    labels = []
-    data = []
 
     queryset = Student.objects.order_by('id')
-    students = {
-        'pending approvals': queryset.filter(is_approved=False).count(),
-        'approved': queryset.filter(is_approved=True).count()
-    }
-    
-    for k in students:
-        labels.append("name")
-        data.append(3)
+    approved = queryset.filter(is_approved=True).count()
+    pending = queryset.filter(is_approved=False).count()
+
+    labels = ['Applications Approved', 'Applications Awaiting Approval']
+    data = [approved, pending]
 
     return render(request, 'reports.html', {
         'labels': labels,
-        'data': data,
+        'data': data
     })
