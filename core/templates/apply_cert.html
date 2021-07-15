@@ -1,0 +1,33 @@
+{% load bootstrap3 %}
+ {%block content%}
+<div class="container">
+    <div class="col-xs-1 col-sm-1 col-md-3 col-lg-3 col-xl-3"></div>
+    <div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+  
+        <form action="{% url 'applyCertificate' %}" method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td><strong>First Name</strong></td>
+                    <td>{{ form.first_name }}</td>
+                 </tr>
+                <tr>
+                    <td><strong>Last Name</strong></td>
+                    <td>{{ form.last_name }}</td>
+                 </tr>
+                <tr>
+                    <td><strong>Mail</strong></td>
+                    <td>{{ form.student_email }}</td>
+                 </tr>
+                <tr>
+                    <td><strong>Text</strong></td>
+                    <td>{{ form.course }}</td>
+                 </tr>
+             </table>
+            <input type="submit" value="Submit">
+        </form>
+        
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-3 col-lg-3 col-xl-3"></div>
+</div>
+{% endblock %}
