@@ -13,19 +13,14 @@
  
 
           <a class="navbar-brand" href="{% url 'index'%}">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2000px-Instagram_logo.svg.png" width=89px height=35px alt="INSTAGRAM">
           </a>
         <div class="" style="margin-top:15px;">
-
           <a href="{% url 'index' %}" id="instTitle" style=" margin-left:10px;color:rgb(19, 175, 167); padding-top:50px; margin-right:20px;font-size:25px;">
             {{request.user.username.title}}
           </a>
         </div>
 
       </div>
-
-
-
 
 
 
@@ -45,14 +40,14 @@
                         <ul class="dropdown-menu" role="menu">
 
                           <li>
-                            <a href="/logout">Logout</a>
+                            <a href="admin/logout">Logout</a>
                           </li>
                         </ul>
                       </li>
 
                       {% else %}
                       <li>
-                        <a class='btn btn-default' href="/accounts/login">Login</a>
+                        <a class='btn btn-default' href="/admin/login">Login</a>
                       </li>
                       <li>
                         <a href="{% url 'registration_register'  %}">Sign Up</a>
